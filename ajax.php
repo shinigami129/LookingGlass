@@ -41,7 +41,10 @@ if (isset($_GET['cmd']) && isset($_GET['host'])) {
         $limit->rateLimit($rateLimit);
 
         // execute command
-        $output = $lg->$_GET['cmd']($_GET['host']);
+        //$output = $lg->$_GET['cmd']($_GET['host']);
+        $varCMD = $_GET['cmd'];
+        $varHost = $_GET['host'];
+        $output = $lg->$varCMD($varHost); //Now can work with php7 > shinigami129
         if ($output) {
             exit();
         }
